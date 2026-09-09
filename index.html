@@ -3,41 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoreLeo Warehouse – Lagerverwaltung für Schweizer KMU</title>
-  <meta name="description" content="CoreLeo ersetzt Excel im Lager. Einfache Lagerverwaltung für Schweizer KMU – Bestände, Bewegungen, Nachbestellung. Jetzt kostenlos testen.">
-  <meta name="keywords" content="Lagerverwaltung Schweiz, Lager Software KMU, Excel Alternative Lager, Bestandsverwaltung, Warehouse Management Schweiz">
-  <link rel="canonical" href="https://www.coreleo.ch">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="de-CH">
-  <meta property="og:title" content="CoreLeo Warehouse – Lagerverwaltung für Schweizer KMU">
-  <meta property="og:description" content="Schluss mit Excel im Lager. Einfache, günstige Lagerverwaltung für KMU in der Schweiz.">
-  <meta property="og:url" content="https://www.coreleo.ch">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="de_CH">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "CoreLeo Warehouse",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "offers": {
-      "@type": "Offer",
-      "price": "9.90",
-      "priceCurrency": "CHF"
-    },
-    "description": "Lagerverwaltung für Schweizer KMU",
-    "url": "https://www.coreleo.ch"
-  }
-  </script>
+  <title>CoreLeo – Software für Schweizer KMU-Fertiger</title>
+  <meta name="description" content="CoreLeo Warehouse: einfache Lagerverwaltung. CoreLeo PPS: transparente Produktionsplanung. Zwei Produkte für Schweizer KMU.">
   <script defer src="/_vercel/insights/script.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; background: #f4f4f8; color: #1a1a2e; line-height: 1.6; }
     .hero { background: #1E1E2E; color: #fff; padding: 3.5rem 1.5rem 3rem; text-align: center; }
-    .logo-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1.75rem; }
+    .logo-row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 1.25rem; }
     .logo-row span { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: 0.02em; }
+
+    .switcher { display: inline-flex; background: rgba(255,255,255,0.08); border-radius: 10px; padding: 4px; margin-bottom: 1.75rem; }
+    .switcher button { border: none; background: transparent; color: rgba(255,255,255,0.6); font-size: 14px; font-weight: 600; padding: 8px 20px; border-radius: 7px; cursor: pointer; transition: all 0.15s; }
+    .switcher button.active { background: #534AB7; color: #fff; }
+
     .badge { display: inline-block; background: rgba(83,74,183,0.25); color: #a89ff0; font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(83,74,183,0.45); margin-bottom: 1.5rem; letter-spacing: 0.04em; }
     .hero h1 { font-size: clamp(22px, 5vw, 34px); font-weight: 700; line-height: 1.3; color: #fff; margin-bottom: 1rem; }
     .hero h1 span { color: #a89ff0; }
@@ -64,6 +44,12 @@
     .form-inner { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 16px; border: 1px solid #e8e8f0; padding: 2rem; }
     .form-inner h2 { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 0.4rem; }
     .form-inner p { font-size: 14px; color: #777; margin-bottom: 1.5rem; line-height: 1.6; }
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: #444; margin-bottom: 4px; }
+    .field input, .field textarea { width: 100%; padding: 10px 12px; border: 1px solid #e0e0e8; border-radius: 8px; font-size: 14px; font-family: inherit; }
+    .field textarea { resize: vertical; min-height: 80px; }
+    .submit-btn { display: inline-block; background: #534AB7; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+    .submit-btn:hover { background: #4a42a8; }
     .trust { background: #1E1E2E; padding: 2rem 1.5rem; }
     .trust-inner { max-width: 780px; margin: 0 auto; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
     .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.6); }
@@ -73,6 +59,11 @@
     footer a:hover { color: #a89ff0; }
     .cta-btn { display: inline-block; background: #534AB7; color: #fff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600; margin-top: 2rem; transition: background 0.15s; }
     .cta-btn:hover { background: #4a42a8; }
+    [data-product="pps"] { display: none; }
+    body.show-pps [data-product="warehouse"] { display: none; }
+    body.show-pps [data-product="pps"] { display: block; }
+    body.show-pps .switcher button[data-target="warehouse"] { background: transparent; color: rgba(255,255,255,0.6); }
+    body.show-pps .switcher button[data-target="pps"] { background: #534AB7; color: #fff; }
     @media (max-width: 480px) {
       .form-inner { padding: 1.5rem 1rem; }
       .pain-row { gap: 1rem; }
@@ -90,20 +81,40 @@
       <path d="M22 20L25 18" stroke="#a89ff0" stroke-width="2" stroke-linecap="round"/>
       <circle cx="25" cy="17.5" r="2" fill="#a89ff0"/>
     </svg>
-    <span>CoreLeo Warehouse</span>
+    <span>CoreLeo</span>
   </div>
-  <div class="badge">Kostenloser Pilottest &middot; 1&ndash;2 Monate</div>
-  <h1>Schluss mit Excel.<br><span>Einfache Lagerverwaltung</span><br>für Schweizer KMUs.</h1>
-  <p>Kein ERP, keine komplizierte Software. Artikel erfassen, Bestand buchen, Alarm bei Nachbestellung &ndash; fertig.</p>
-  <div class="pain-row">
-    <div class="pain-item"><span class="x">✕</span> Excel-Chaos</div>
-    <div class="pain-item"><span class="x">✕</span> Papierzettel</div>
-    <div class="pain-item"><span class="x">✕</span> Teures ERP</div>
+
+  <div class="switcher">
+    <button data-target="warehouse" class="active" onclick="switchProduct('warehouse')">Warehouse</button>
+    <button data-target="pps" onclick="switchProduct('pps')">PPS</button>
   </div>
-  <a href="#anmelden" class="cta-btn">Jetzt als Testbetrieb anmelden</a>
+
+  <div data-product="warehouse">
+    <div class="badge">Kostenloser Pilottest &middot; 1&ndash;2 Monate</div>
+    <h1>Schluss mit Excel.<br><span>Einfache Lagerverwaltung</span><br>für Schweizer KMUs.</h1>
+    <p>Kein ERP, keine komplizierte Software. Artikel erfassen, Bestand buchen, Alarm bei Nachbestellung &ndash; fertig.</p>
+    <div class="pain-row">
+      <div class="pain-item"><span class="x">✕</span> Excel-Chaos</div>
+      <div class="pain-item"><span class="x">✕</span> Papierzettel</div>
+      <div class="pain-item"><span class="x">✕</span> Teures ERP</div>
+    </div>
+    <a href="#anmelden-warehouse" class="cta-btn">Jetzt als Testbetrieb anmelden</a>
+  </div>
+
+  <div data-product="pps">
+    <div class="badge">Für CNC- und Metallverarbeitungsbetriebe</div>
+    <h1>Schluss mit Excel-Plänen.<br><span>Transparente Produktionsplanung</span><br>für Schweizer KMU-Fertiger.</h1>
+    <p>Kein ERP-Ersatz, keine komplizierte Software. PDF-Import aus eurem ERP, Terminplanung mit Kollisionsprüfung, Shopfloor-Anzeige &ndash; alles an einem Ort.</p>
+    <div class="pain-row">
+      <div class="pain-item"><span class="x">✕</span> Excel-Chaos</div>
+      <div class="pain-item"><span class="x">✕</span> Ein-Personen-Wissen</div>
+      <div class="pain-item"><span class="x">✕</span> Teures ERP-Modul</div>
+    </div>
+    <a href="#anmelden-pps" class="cta-btn">Jetzt Pilot anfragen</a>
+  </div>
 </section>
 
-<section class="section">
+<section class="section" data-product="warehouse">
   <div class="section-title">Was CoreLeo Warehouse kann</div>
   <div class="section-sub">Gebaut für Werkhöfe, Schreiner, Metallbauer und andere Handwerksbetriebe &ndash; ohne IT-Kenntnisse bedienbar.</div>
   <div class="features">
@@ -116,7 +127,20 @@
   </div>
 </section>
 
-<section class="how">
+<section class="section" data-product="pps">
+  <div class="section-title">Was CoreLeo PPS kann</div>
+  <div class="section-sub">Gebaut für CNC- und Metallverarbeitungsbetriebe mit bestehendem ERP &ndash; als zusätzliche Planungsschicht, nicht als Ersatz.</div>
+  <div class="features">
+    <div class="feat"><div class="feat-icon">📄</div><h3>PDF-Import</h3><p>Aufträge direkt aus eurem ERP-Export einlesen, mit automatischem Abgleich.</p></div>
+    <div class="feat"><div class="feat-icon">📅</div><h3>Terminplanung</h3><p>Maschinenzuweisung mit automatischer Kollisions- und Reihenfolgeprüfung.</p></div>
+    <div class="feat"><div class="feat-icon">🖥️</div><h3>Shopfloor-Ansicht</h3><p>Live-Übersicht für die Werkstatt &ndash; was läuft, was kommt als Nächstes.</p></div>
+    <div class="feat"><div class="feat-icon">🔧</div><h3>Maschinenausfall</h3><p>Ausfälle melden, betroffene Aufträge sofort sichtbar.</p></div>
+    <div class="feat"><div class="feat-icon">📊</div><h3>Dashboard</h3><p>Terminrisiko und Maschinenauslastung auf einen Blick.</p></div>
+    <div class="feat"><div class="feat-icon">📧</div><h3>Tages-Zusammenfassung</h3><p>Automatische Änderungs-Mail &ndash; wer hat was wann geändert.</p></div>
+  </div>
+</section>
+
+<section class="how" data-product="warehouse">
   <div class="how-inner">
     <div class="section-title">So funktioniert der Pilottest</div>
     <div class="section-sub">Drei Schritte &ndash; kein Risiko, kein Abo.</div>
@@ -128,8 +152,20 @@
   </div>
 </section>
 
-<section class="form-section" id="anmelden">
-  <div class="form-inner">
+<section class="how" data-product="pps">
+  <div class="how-inner">
+    <div class="section-title">So funktioniert der Pilot</div>
+    <div class="section-sub">Drei Schritte &ndash; unverbindlich und ohne Risiko.</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Anfragen</h3><p>Formular ausfüllen. Wir melden uns innert 48 Stunden.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>Kennenlernen</h3><p>Kurzes Gespräch zu eurem ERP und eurer aktuellen Planung.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>Pilot starten</h3><p>Gemeinsam mit euren echten Daten einrichten und testen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="anmelden-warehouse" data-product="warehouse">
+  <div class="form-inner" style="text-align:left;">
     <h2>Jetzt als Testbetrieb anmelden</h2>
     <p>Kostenlos für 1&ndash;2 Monate. Einzige Gegenleistung: kurzes wöchentliches Feedback. Keine Kreditkarte, kein Risiko.</p>
     <iframe
@@ -145,6 +181,38 @@
   </div>
 </section>
 
+<section class="form-section" id="anmelden-pps" data-product="pps">
+  <div class="form-inner">
+    <h2>Jetzt Pilot anfragen</h2>
+    <p>Für CNC- und Metallverarbeitungsbetriebe mit eigenem ERP. Wir melden uns innert 48 Stunden.</p>
+    <form action="https://formsubmit.co/info@flowmentum.ch" method="POST">
+      <input type="hidden" name="_subject" value="CoreLeo PPS - Neue Pilotanfrage">
+      <input type="hidden" name="_captcha" value="false">
+      <div class="field">
+        <label for="pps-name">Name</label>
+        <input type="text" id="pps-name" name="Name" required>
+      </div>
+      <div class="field">
+        <label for="pps-firma">Firma</label>
+        <input type="text" id="pps-firma" name="Firma" required>
+      </div>
+      <div class="field">
+        <label for="pps-email">E-Mail</label>
+        <input type="email" id="pps-email" name="E-Mail" required>
+      </div>
+      <div class="field">
+        <label for="pps-erp">Welches ERP nutzt ihr aktuell?</label>
+        <input type="text" id="pps-erp" name="ERP">
+      </div>
+      <div class="field">
+        <label for="pps-nachricht">Nachricht (optional)</label>
+        <textarea id="pps-nachricht" name="Nachricht"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Anfrage senden</button>
+    </form>
+  </div>
+</section>
+
 <section class="trust">
   <div class="trust-inner">
     <div class="trust-item"><span>🇨🇭</span> Schweizer Produkt</div>
@@ -154,10 +222,18 @@
 </section>
 
 <footer>
-  <p>© 2025 CoreLeo Warehouse &nbsp;|&nbsp; <a href="mailto:info@flowmentum.ch">info@flowmentum.ch</a> &nbsp;|&nbsp; <a href="https://www.coreleo.ch">coreleo.ch</a></p>
+  <p>© 2025 CoreLeo &nbsp;|&nbsp; <a href="mailto:info@flowmentum.ch">info@flowmentum.ch</a> &nbsp;|&nbsp; <a href="https://www.coreleo.ch">coreleo.ch</a></p>
 </footer>
 
 <script async src="https://tally.so/widgets/embed.js"></script>
+<script>
+  function switchProduct(product) {
+    document.body.classList.toggle('show-pps', product === 'pps')
+    document.querySelectorAll('.switcher button').forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.target === product)
+    })
+  }
+</script>
 
 </body>
 </html>
