@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoreLeo – Software für Schweizer KMU-Fertiger</title>
-  <meta name="description" content="CoreLeo Warehouse: einfache Lagerverwaltung. CoreLeo PPS: transparente Produktionsplanung. Zwei Produkte für Schweizer KMU.">
+  <title>CoreLeo – Software für KMU-Fertiger im DACH-Raum</title>
+  <meta name="description" content="CoreLeo Warehouse: einfache Lagerverwaltung für Schweizer KMU. CoreLeo PPS: transparente Produktionsplanung für KMU-Fertiger im DACH-Raum.">
   <script defer src="/_vercel/insights/script.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,7 +70,7 @@
     }
   </style>
 </head>
-<body>
+<body class="show-pps">
 
 <section class="hero">
   <div class="logo-row">
@@ -85,8 +85,8 @@
   </div>
 
   <div class="switcher">
-    <button data-target="warehouse" class="active" onclick="switchProduct('warehouse')">Warehouse</button>
-    <button data-target="pps" onclick="switchProduct('pps')">PPS</button>
+    <button data-target="warehouse" onclick="switchProduct('warehouse')">Warehouse</button>
+    <button data-target="pps" class="active" onclick="switchProduct('pps')">PPS</button>
   </div>
 
   <div data-product="warehouse">
@@ -103,7 +103,7 @@
 
   <div data-product="pps">
     <div class="badge">Für CNC- und Metallverarbeitungsbetriebe</div>
-    <h1>Schluss mit Excel-Plänen.<br><span>Transparente Produktionsplanung</span><br>für Schweizer KMU-Fertiger.</h1>
+    <h1>Schluss mit Excel-Plänen.<br><span>Transparente Produktionsplanung</span><br>für KMU-Fertiger im DACH-Raum.</h1>
     <p>Kein ERP-Ersatz, keine komplizierte Software. PDF-Import aus eurem ERP, Terminplanung mit Kollisionsprüfung, Shopfloor-Anzeige &ndash; alles an einem Ort.</p>
     <div class="pain-row">
       <div class="pain-item"><span class="x">✕</span> Excel-Chaos</div>
